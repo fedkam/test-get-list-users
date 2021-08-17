@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import styled from 'styled-components'
 import { useActions } from '../../customHooks/useActions'
 import { useTypedSelector } from '../../customHooks/useTypedSelector'
 import UserCard from '../UserCard'
 
-const UserList: React.FC = () => {
+const UserList: FC = () => {
     const { page, error, loading, users } = useTypedSelector(state => state.user)
     const { fetchUsers } = useActions()
 

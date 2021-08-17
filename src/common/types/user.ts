@@ -11,7 +11,7 @@ export enum UserActionTypes {
 export interface User {
     name: string;
     dob: Moment;
-    balance: number;
+    balance: string;
     e_date: Moment;
     email: string | string[];
     phone: string | string[];

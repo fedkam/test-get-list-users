@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import { ThemeType } from '../../common/types/theme';
 
-const GlobalStyle = createGlobalStyle`
+const ResetCss = createGlobalStyle`
     /* Box sizing rules */
     *,
     *::before,
@@ -40,6 +41,11 @@ const GlobalStyle = createGlobalStyle`
       min-height: 100vh;
       text-rendering: optimizeSpeed;
       line-height: 1.5;
+
+      font-size: ${props => (props.theme as ThemeType).fonts.size._14};
+      font-weight: 400;
+      background-color: ${props => (props.theme as ThemeType).color.lightYellow};
+      color: ${props => (props.theme as ThemeType).color.black10};
     }
 
     /* A elements that don't have a class get default styles */
@@ -79,4 +85,4 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-export default GlobalStyle;
+export default ResetCss;

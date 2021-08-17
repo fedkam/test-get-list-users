@@ -7,14 +7,15 @@ export const fetchUsers = (page = 1) => {
     return async (dispatch: Dispatch<UserActions>) => {
         try {
             dispatch({ type: UserActionTypes.FETCH_USERS });
-            const response = await axios.get('https://', {
-                params: { _page: page }
-            });
+            // const response = await axios.get('https://', {
+            //     headers: { 'X-ALFACRM-TOKEN': '' },
+            //     params: { page: page }
+            // });
             let items = testLocalData.items.map((user) => (
                 {
                     name: user.name,
                     dob: moment(user.dob, 'DD-MM-YYYY'),
-                    balance: Number(user.balance),
+                    balance: user.balance,
                     e_date: moment(user.e_date),
                     email: user.email,
                     phone: user.phone,
@@ -34,6 +35,7 @@ export const fetchUsers = (page = 1) => {
                 )
             }, 500)
         } catch (e) {
+            console.log(e)
             dispatch({
                 type: UserActionTypes.FETCH_USERS_ERROR,
                 payload: 'Произошла ошибка при загрузке пользователей'
