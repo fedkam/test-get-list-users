@@ -23,6 +23,7 @@ export const fetchUsers = (page = 1) => {
                     custom_photo: ''
                 }
             ))
+            items[0].custom_photo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png'; //пример
             setTimeout(() => {
                 dispatch(
                     {

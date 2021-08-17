@@ -19,10 +19,11 @@ const UserList: FC = () => {
         return <h1>{error}</h1>
     }
 
-    console.log("UserList users=", users)
     return (
         <UserListWrapper>
-            <UserCard />
+            {users.map((user) => (
+                <UserCard userData={user} />
+            ))}
         </UserListWrapper>
     )
 }
@@ -32,5 +33,7 @@ export default UserList;
 const UserListWrapper = styled.div`
     padding: 24px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center ;
 `
