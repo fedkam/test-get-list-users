@@ -10,6 +10,7 @@ const initialState: UserState = {
 export const userReducer = (state = initialState, action: UserActions): UserState => {
     switch (action.type) {
         case UserActionTypes.FETCH_USERS:
+        case UserActionTypes.CREATE_USER:
             return {
                 ...state,
                 loading: true

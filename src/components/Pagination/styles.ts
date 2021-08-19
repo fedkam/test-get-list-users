@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
 `
 export const ControllButton = styled.button`
     min-width: 66px;
+    min-height: 40px;
     padding: 4px 8px;
     margin: 0px 16px;
     background-color: ${(props) => (props.theme as ThemeType).color.white};

@@ -4,9 +4,9 @@ import { ThemeType } from '../../common/types/theme'
 export const PaginationWrapper = styled.div`
     position: absolute;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding-right: 24px;
+    padding: 0px 60px;
     bottom: 0;
     width: 100%;
     height: 100px;
