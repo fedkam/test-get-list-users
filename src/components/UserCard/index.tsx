@@ -75,8 +75,9 @@ const UserCard: FC<{ userData: User }> = ({ userData }) => {
         return (Array.isArray(item) ? item : [item])
     };
     const contacts = arrayWrapper(phone).concat(arrayWrapper(email));
+    const isValid = moment() <= e_date;
     return (
-        <Style.Card>
+        <Style.Card isValid={isValid}>
             <Style.HeaderUserCard>
                 <Style.PhotoUser>
                     <img src={custom_photo ?? null} />
@@ -89,7 +90,9 @@ const UserCard: FC<{ userData: User }> = ({ userData }) => {
                 <Field items={addr}> Адрес </Field>
                 <Field items={contacts}> Контакты </Field>
                 <Field items={balance}> Баланс </Field>
-                <ValidityField item={e_date.format('DD.MM.YYYY')}>Учетная запись действительна до:</ValidityField>
+                <ValidityField item={e_date.format('DD.MM.YYYY')} >
+                    Учетная запись действительна до:
+                </ValidityField>
             </div>
         </Style.Card>
     )

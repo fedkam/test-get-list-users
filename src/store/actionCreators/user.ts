@@ -20,7 +20,7 @@ export const fetchUsers = (page = 0) => {
             dispatch({ type: UserActionTypes.FETCH_USERS })
             const token = getDefaultHeaderToken()
             const response = await UserService.fetchUsers(page, token)
-            let items = testLocalData.items.map((user) => (
+            let items = response.data.items.map((user: any) => (
                 {
                     id: user.id,
                     name: user.name,
@@ -33,12 +33,17 @@ export const fetchUsers = (page = 0) => {
                     custom_photo: ''
                 }
             ))
-            items[0].custom_photo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png'; //пример
+
+            // Примеры
+            items[0].custom_photo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png'
+            items[0].e_date = moment('22.11.2000', 'DD-MM-YYYY')
+            //
+
             dispatch(
                 {
                     type: UserActionTypes.FETCH_USERS_SUCCESS,
                     payload: {
-                        page: testLocalData.page,
+                        page: response.data.page,
                         users: items
                     }
                 }

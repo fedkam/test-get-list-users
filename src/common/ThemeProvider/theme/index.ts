@@ -6,6 +6,8 @@ const color = {
     black10: '##131313',
     white: '#FFFFFF',
     lightYellow: '#FCFCFA',
+    red9: '#FFFAFA',
+    red10: '#FF8B8B'
 } as const
 
 const fonts = {
