@@ -26,7 +26,7 @@ const radius = {
 const shadow = {
     extraSmall: '',
     small: '0px 2px 6px rgb(0, 0, 0, 0.1)',
-    medium: '',
+    medium: '0px 0px 5px rgb(0, 0 ,0 , 0.1)',
     large: '',
 } as const
 

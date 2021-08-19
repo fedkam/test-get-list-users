@@ -1,8 +1,9 @@
 import React, { FC, useEffect } from 'react'
-import styled from 'styled-components'
+
 import { useActions } from '../../customHooks/useActions'
 import { useTypedSelector } from '../../customHooks/useTypedSelector'
 import UserCard from '../UserCard'
+import * as Style from './styles'
 
 const UserList: FC = () => {
     const { page, error, loading, users } = useTypedSelector(state => state.user)
@@ -20,23 +21,20 @@ const UserList: FC = () => {
     }
 
     return (
-        <UserListWrapper>
-            {users.map((user, indx) => (
-                <UserCard
-                    key={user?.id ?? indx}
-                    userData={user}
-                />
-            ))}
-        </UserListWrapper>
+        <Style.UserListWrapper>
+            <Style.UserCardsWrapper>
+                {users.map((user, indx) => (
+                    <UserCard
+                        key={user?.id ?? indx}
+                        userData={user}
+                    />
+                ))}
+            </Style.UserCardsWrapper>
+            <Style.PaginationWrapper >
+
+            </Style.PaginationWrapper>
+        </Style.UserListWrapper>
     )
 }
 
 export default UserList;
-
-const UserListWrapper = styled.div`
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center ;
-`

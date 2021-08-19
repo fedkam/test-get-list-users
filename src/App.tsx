@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { LoginForm } from './components/Login'
 import UserList from './components/UserList'
+import { useActions } from './customHooks/useActions'
+import { useTypedSelector } from './customHooks/useTypedSelector'
 
 function App() {
+  const { isAuth } = useTypedSelector(state => state.auth)
+
   return (
     <>
-      <LoginForm />
-      <UserList />
+      {!isAuth && <LoginForm />}
+      {isAuth && <UserList />}
     </>
   )
 }

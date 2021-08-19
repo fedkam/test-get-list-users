@@ -1,9 +1,10 @@
-import axios, { AxiosResponse } from 'axios'
+import { AxiosResponse } from 'axios'
+import { $axios } from '../../http'
 import { AuthResponse } from './types'
 
 export default class AuthService {
     static async login(email: string, password: string): Promise<AxiosResponse<AuthResponse>> {
-        return axios.post('/v2api/auth/login', {
+        return $axios.post('/v2api/auth/login', {
             'email': email,
             'api_key': password
         })

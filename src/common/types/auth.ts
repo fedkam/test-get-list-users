@@ -1,12 +1,14 @@
 export enum AuthActionTypes {
     FETCH_TOKEN = 'FETCH_TOKEN',
     FETCH_TOKEN_SUCCESS = 'FETCH_TOKEN_SUCCESS',
-    FETCH_TOKEN_ERROR = 'FETCH_TOKEN_ERROR'
+    FETCH_TOKEN_ERROR = 'FETCH_TOKEN_ERROR',
+    LOGOUT = 'LOGOUT'
 }
 
 export interface AuthState {
     isAuth: boolean;
     loading: boolean;
+    error: string
 }
 
 interface FetchTokenAction {
@@ -22,4 +24,8 @@ interface FetchUserErrorAction {
     payload: string;
 }
 
-export type AuthActions = FetchTokenAction | FetchTokenSuccessAction | FetchUserErrorAction;
+interface LogoutAction {
+    type: AuthActionTypes.LOGOUT;
+}
+
+export type AuthActions = FetchTokenAction | FetchTokenSuccessAction | FetchUserErrorAction | LogoutAction;

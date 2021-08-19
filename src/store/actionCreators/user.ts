@@ -1,22 +1,17 @@
 import { UserActions, UserActionTypes } from '../../common/types/user'
+import { AuthActions, AuthActionTypes } from '../../common/types/auth';
 import { Dispatch } from 'redux'
-import axios from 'axios'
+import { AxiosError } from "axios";
 import moment from 'moment'
 import UserService from '../../service/UserService'
+import { getDefaultHeaderToken } from '../../http'
 
 export const fetchUsers = (page = 0) => {
-    return async (dispatch: Dispatch<UserActions>) => {
+    return async (dispatch: Dispatch<UserActions | AuthActions>) => {
         try {
             dispatch({ type: UserActionTypes.FETCH_USERS })
-            // const response = await axios.post('/v2api/auth/login', {
-            //     'email': 'test-task@alfacrm.pro',
-            //     'api_key': '9616c537-f7c9-11ea-a4f7-0cc47ae3c526'
-            // })
-            // console.log(response)
-
-            const response = await UserService.fetchUsers(page)
-            console.log('data', response)
-
+            const token = getDefaultHeaderToken()
+            const response = await UserService.fetchUsers(page, token)
             let items = testLocalData.items.map((user) => (
                 {
                     id: user.id,
@@ -31,23 +26,24 @@ export const fetchUsers = (page = 0) => {
                 }
             ))
             items[0].custom_photo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png'; //пример
-            setTimeout(() => {
-                dispatch(
-                    {
-                        type: UserActionTypes.FETCH_USERS_SUCCESS,
-                        payload: {
-                            page: testLocalData.page,
-                            users: items
-                        }
+            dispatch(
+                {
+                    type: UserActionTypes.FETCH_USERS_SUCCESS,
+                    payload: {
+                        page: testLocalData.page,
+                        users: items
                     }
-                )
-            }, 500)
+                }
+            )
         } catch (err) {
             console.log(err)
             dispatch({
                 type: UserActionTypes.FETCH_USERS_ERROR,
                 payload: 'Произошла ошибка при загрузке пользователей'
             })
+            if (err.response.status == 401) {
+                dispatch({ type: AuthActionTypes.LOGOUT })
+            }
         }
     }
 }
