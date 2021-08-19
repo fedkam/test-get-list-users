@@ -9,6 +9,8 @@ export default class AuthService {
         })
     }
 
+    static async checkLogin() { }
+
     static async registration(email: string, password: string): Promise<any> { }
 
     static async logout(email: string, password: string): Promise<void> { }

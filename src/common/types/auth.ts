@@ -15,10 +15,6 @@ interface FetchTokenAction {
 
 interface FetchTokenSuccessAction {
     type: AuthActionTypes.FETCH_TOKEN_SUCCESS,
-    payload: {
-        isAuth: boolean,
-        loading: boolean
-    }
 }
 
 interface FetchUserErrorAction {

@@ -2,7 +2,7 @@ import { UserState, UserActionTypes, UserActions } from '../../common/types/user
 
 const initialState: UserState = {
     users: [],
-    page: 1,
+    page: 0,
     error: null,
     loading: false
 }

@@ -1,7 +1,7 @@
 import { AuthState, AuthActionTypes, AuthActions } from '../../common/types/auth'
 
 const initialState: AuthState = {
-    isAuth: true,
+    isAuth: false,
     loading: false
 }
 
@@ -15,7 +15,7 @@ export const authReducer = (state = initialState, action: AuthActions): AuthStat
         case AuthActionTypes.FETCH_TOKEN_SUCCESS:
             return {
                 ...state,
-                loading: true,
+                loading: false,
                 isAuth: true
             }
         default:

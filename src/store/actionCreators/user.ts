@@ -2,8 +2,9 @@ import { UserActions, UserActionTypes } from '../../common/types/user'
 import { Dispatch } from 'redux'
 import axios from 'axios'
 import moment from 'moment'
+import UserService from '../../service/UserService'
 
-export const fetchUsers = (page = 1) => {
+export const fetchUsers = (page = 0) => {
     return async (dispatch: Dispatch<UserActions>) => {
         try {
             dispatch({ type: UserActionTypes.FETCH_USERS })
@@ -13,12 +14,9 @@ export const fetchUsers = (page = 1) => {
             // })
             // console.log(response)
 
-            // const response = await axios.get('https://test.s20.online/v2api/customer/index', {
-            //     headers: { 'X-ALFACRM-TOKEN': '14844034334f71dddad09194ae813982' },
-            //     params: { page: page }
-            // });
+            const response = await UserService.fetchUsers(page)
+            console.log('data', response)
 
-            document.cookie = 'X-ALFACRM-TOKEN=123; path=/; secure = true; SameSite = strict' // fix httpOnly; 
             let items = testLocalData.items.map((user) => (
                 {
                     id: user.id,
