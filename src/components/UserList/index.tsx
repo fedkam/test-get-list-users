@@ -8,9 +8,10 @@ import { ControllButton } from '../Pagination/styles'
 import { CreateUser } from '../CreateUser'
 
 
+
 const UserList: FC = () => {
     const { page, error, loading, users } = useTypedSelector(state => state.user)
-    const { fetchUsers, nextUserPage, previosUserPage } = useActions()
+    const { fetchUsers, nextUserPage, previosUserPage, createUser } = useActions()
     const [isOpenCreateUserForm, setIsOpenCreateUserForm] = useState(false)
 
     useEffect(() => {
@@ -28,7 +29,7 @@ const UserList: FC = () => {
     if (isOpenCreateUserForm) {
         return (
             <CreateUser
-                createUser={() => { }}
+                createUser={createUser}
                 close={() => setIsOpenCreateUserForm(false)}
             />
         )

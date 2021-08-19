@@ -15,6 +15,11 @@ export const userReducer = (state = initialState, action: UserActions): UserStat
                 ...state,
                 loading: true
             }
+        case UserActionTypes.CREATE_USER_SUCCESS:
+            return {
+                ...state,
+                loading: false
+            }
         case UserActionTypes.FETCH_USERS_SUCCESS:
             return {
                 ...state,

@@ -42,18 +42,18 @@ export const NameField = styled.div`
 `
 
 
-export const Card = styled.div<{ isValid: boolean }>`
+export const Card = styled.div<{ isValid: boolean, isNew: boolean }>`
     max-width: 400px;
     padding: 24px;
+    border-radius: 16px;
+    background-color: ${props => (props.theme as ThemeType).color.white};
+    box-shadow:  ${props => (props.theme as ThemeType).shadow.small};
     border: 1px solid ${props =>
         props.isValid ?
             (props.theme as ThemeType).color.gray10
             :
             (props.theme as ThemeType).color.red10
     };
-    border-radius: 16px;
-    background-color: ${props => (props.theme as ThemeType).color.white};
-    box-shadow:  ${props => (props.theme as ThemeType).shadow.small};
     ${props => !props.isValid && `
         ${ItemsValidityField}{
             font-weight: 600;

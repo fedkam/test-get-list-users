@@ -6,7 +6,8 @@ export enum UserActionTypes {
     FETCH_USERS_ERROR = 'FETCH_USERS_ERROR',
     PREVIOUS_USER_PAGE = 'PREVIOUS_USER_PAGE',
     NEXT_USER_PAGE = 'NEXT_USER_PAGE',
-    CREATE_USER = 'CREATE_USER'
+    CREATE_USER = 'CREATE_USER',
+    CREATE_USER_SUCCESS = 'CREATE_USER_SUCCESS'
 }
 
 export interface User {
@@ -51,5 +52,9 @@ interface NextUserPage {
 interface CreateUserAction {
     type: UserActionTypes.CREATE_USER
 }
+interface CreateUserSuccessAction {
+    type: UserActionTypes.CREATE_USER_SUCCESS
+}
 
-export type UserActions = FetchUserAction | FetchUserSuccessAction | FetchUserErrorAction | PreviousUserPage | NextUserPage | CreateUserAction;
+export type UserActions = FetchUserAction | FetchUserSuccessAction | FetchUserErrorAction | PreviousUserPage | NextUserPage | CreateUserAction | CreateUserSuccessAction;
+

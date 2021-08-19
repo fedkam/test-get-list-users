@@ -5,26 +5,31 @@ import styled from 'styled-components';
 import { ThemeType } from '../../common/types/theme'
 import { ControllButton } from '../Pagination/styles'
 
-type CreateUserProps = {
-    createUser: (name: string, date: Moment, email: string, phone: string, address: string) => void,
+
+export type CreateUserProps = {
+    createUser: (name: string, date: string, email: string, phone: string, address: string) => any,
     close: () => void
 }
+
 export const CreateUser: FC<CreateUserProps> = ({ createUser, close }) => {
-    const [name, setName] = useState('');
-    const [date, setDate] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [address, setAddress] = useState('');
+    const [name, setName] = useState('')
+    const [date, setDate] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [address, setAddress] = useState('')
     const [error, setError] = useState('')
-    const onSubmit = (e: React.SyntheticEvent) => {
+
+    const onSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault();
-        const dateMoment = moment(date)
         if (name && date && email && phone && address) {
-            createUser(name, dateMoment, email, phone, address)
+            const result = await createUser(name, date, email, phone, address);
+            result?.success && alert('Пользователь успешно создан')
+            close()
         } else {
             setError('Необходимо заполнить все поля')
         }
     }
+
     return (
         <Wrapper>
             <form>

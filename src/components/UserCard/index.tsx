@@ -75,9 +75,12 @@ const UserCard: FC<{ userData: User }> = ({ userData }) => {
         return (Array.isArray(item) ? item : [item])
     };
     const contacts = arrayWrapper(phone).concat(arrayWrapper(email));
-    const isValid = moment() <= e_date;
+
+    const isValid = !moment(moment().format()).isAfter(e_date.format())
+    const isNew = moment(moment().format()).isSame(e_date.format())
+    console.log(isNew)
     return (
-        <Style.Card isValid={isValid}>
+        <Style.Card isValid={isValid} isNew={isNew}>
             <Style.HeaderUserCard>
                 <Style.PhotoUser>
                     <img src={custom_photo ?? null} />

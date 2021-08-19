@@ -2,9 +2,25 @@ import { UserActions, UserActionTypes } from '../../common/types/user'
 import { AuthActions, AuthActionTypes } from '../../common/types/auth';
 import { Dispatch } from 'redux'
 import { AxiosError } from "axios";
-import moment from 'moment'
+import moment, { Moment } from 'moment'
 import UserService from '../../service/UserService'
 import { getDefaultHeaderToken } from '../../http'
+
+export const createUser = (name: string, date: string, email: string, phone: string, address: string) => {
+    return async (dispatch: Dispatch<UserActions>) => {
+        try {
+            dispatch({ type: UserActionTypes.CREATE_USER })
+            const response = await UserService.createUser(name, date, email, phone, address)
+            dispatch({ type: UserActionTypes.CREATE_USER_SUCCESS })
+            return {
+                errors: response?.data?.errors,
+                success: response?.data?.success
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
+}
 
 export const previosUserPage = () => (dispatch: Dispatch<UserActions>) => {
     dispatch({ type: UserActionTypes.PREVIOUS_USER_PAGE })
@@ -18,8 +34,7 @@ export const fetchUsers = (page = 0) => {
     return async (dispatch: Dispatch<UserActions | AuthActions>) => {
         try {
             dispatch({ type: UserActionTypes.FETCH_USERS })
-            const token = getDefaultHeaderToken()
-            const response = await UserService.fetchUsers(page, token)
+            const response = await UserService.fetchUsers(page)
             let items = response.data.items.map((user: any) => (
                 {
                     id: user.id,
@@ -37,6 +52,7 @@ export const fetchUsers = (page = 0) => {
             // Примеры
             items[0].custom_photo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png'
             items[0].e_date = moment('22.11.2000', 'DD-MM-YYYY')
+            items[1].e_date = moment()
             //
 
             dispatch(
