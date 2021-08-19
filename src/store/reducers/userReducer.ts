@@ -28,7 +28,7 @@ export const userReducer = (state = initialState, action: UserActions): UserStat
                 error: action.payload
             }
         case UserActionTypes.PREVIOUS_USER_PAGE:
-            let prevPage = (action.payload <= 1) ? 1 : (action.payload - 1)
+            let prevPage = (state.page <= 1) ? 1 : (state.page - 1)
             return {
                 ...state,
                 page: prevPage
@@ -36,7 +36,7 @@ export const userReducer = (state = initialState, action: UserActions): UserStat
         case UserActionTypes.NEXT_USER_PAGE:
             return {
                 ...state,
-                page: action.payload + 1
+                page: state.page + 1
             }
         default:
             return state

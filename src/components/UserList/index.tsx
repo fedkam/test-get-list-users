@@ -4,10 +4,11 @@ import { useActions } from '../../customHooks/useActions'
 import { useTypedSelector } from '../../customHooks/useTypedSelector'
 import UserCard from '../UserCard'
 import * as Style from './styles'
+import { Pagination } from '../Pagination'
 
 const UserList: FC = () => {
     const { page, error, loading, users } = useTypedSelector(state => state.user)
-    const { fetchUsers } = useActions()
+    const { fetchUsers, nextUserPage, previosUserPage } = useActions()
 
     useEffect(() => {
         fetchUsers(page)
@@ -31,7 +32,11 @@ const UserList: FC = () => {
                 ))}
             </Style.UserCardsWrapper>
             <Style.PaginationWrapper >
-
+                <Pagination
+                    page={page}
+                    nextPage={nextUserPage}
+                    prevPage={previosUserPage}
+                />
             </Style.PaginationWrapper>
         </Style.UserListWrapper>
     )

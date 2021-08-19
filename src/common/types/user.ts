@@ -43,11 +43,9 @@ interface FetchUserErrorAction {
 }
 interface PreviousUserPage {
     type: UserActionTypes.PREVIOUS_USER_PAGE;
-    payload: number;
 }
 interface NextUserPage {
     type: UserActionTypes.NEXT_USER_PAGE;
-    payload: number;
 }
 
 export type UserActions = FetchUserAction | FetchUserSuccessAction | FetchUserErrorAction | PreviousUserPage | NextUserPage;

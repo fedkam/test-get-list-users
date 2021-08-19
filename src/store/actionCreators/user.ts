@@ -6,6 +6,14 @@ import moment from 'moment'
 import UserService from '../../service/UserService'
 import { getDefaultHeaderToken } from '../../http'
 
+export const previosUserPage = () => (dispatch: Dispatch<UserActions>) => {
+    dispatch({ type: UserActionTypes.PREVIOUS_USER_PAGE })
+}
+
+export const nextUserPage = () => (dispatch: Dispatch<UserActions>) => {
+    dispatch({ type: UserActionTypes.NEXT_USER_PAGE })
+}
+
 export const fetchUsers = (page = 0) => {
     return async (dispatch: Dispatch<UserActions | AuthActions>) => {
         try {

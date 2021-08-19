@@ -3,6 +3,10 @@ import { ThemeType } from '../../common/types/theme'
 
 export const PaginationWrapper = styled.div`
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 24px;
     bottom: 0;
     width: 100%;
     height: 100px;
