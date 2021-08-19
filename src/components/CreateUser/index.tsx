@@ -1,10 +1,7 @@
-import moment from 'moment';
-import { Moment } from 'moment';
 import React, { FC, useState } from 'react'
-import styled from 'styled-components';
-import { ThemeType } from '../../common/types/theme'
-import { ControllButton } from '../Pagination/styles'
 
+import { ControllButton } from '../Pagination/styles'
+import * as Style from './styles'
 
 export type CreateUserProps = {
     createUser: (name: string, date: string, email: string, phone: string, address: string) => any,
@@ -31,10 +28,10 @@ export const CreateUser: FC<CreateUserProps> = ({ createUser, close }) => {
     }
 
     return (
-        <Wrapper>
+        <Style.Wrapper>
             <form>
-                <Header>Создание пользователя</Header>
-                <Fields>
+                <Style.Header>Создание пользователя</Style.Header>
+                <Style.Fields>
 
                     <input
                         value={name}
@@ -71,50 +68,13 @@ export const CreateUser: FC<CreateUserProps> = ({ createUser, close }) => {
                         type='text'
                         required
                     />
-                </Fields>
-                <ButtonsWrapper>
+                </Style.Fields>
+                <Style.ButtonsWrapper>
                     <ControllButton type={'submit'} onClick={onSubmit}>Создать</ControllButton>
                     <ControllButton onClick={close}>Отмена</ControllButton>
-                </ButtonsWrapper>
+                </Style.ButtonsWrapper>
                 {error && <h1>Заполните все поля</h1>}
             </form>
-        </Wrapper>
+        </Style.Wrapper>
     )
 }
-
-export const Header = styled.h1`
-    margin-bottom: 34px;
-    font-weight:700;
-`
-
-export const ButtonsWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`
-
-export const Fields = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    & > :nth-child(n) {
-        margin-bottom: 24px;
-        min-width: 400px;
-        min-height: 40px;
-        border-radius: 12px;
-        border: 1px solid ${props => (props.theme as ThemeType).color.gray10};
-        padding: 16px;
-        :invalid { border: 2px solid red;}
-    }
-`
-
-export const Wrapper = styled.div` 
-    width: 100%;
-    height: 100vh;
-    background-color:  ${props => (props.theme as ThemeType).color.white};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-`

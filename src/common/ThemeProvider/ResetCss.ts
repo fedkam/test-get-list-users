@@ -68,6 +68,18 @@ const ResetCss = createGlobalStyle`
       font: inherit;
       box-shadow: none;
     }
+    
+    :active, :hover, :focus {
+      outline: 0;
+      outline-offset: 0;
+    }
+
+    button:active, button:focus {
+      outline: none;
+    }
+    button::-moz-focus-inner {
+      border: 0;
+    }
 
     /* Remove all animations and transitions for people that prefer not to see them */
     @media (prefers-reduced-motion: reduce) {

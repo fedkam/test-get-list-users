@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react'
-import styled from 'styled-components'
+import React from 'react'
 import { LoginForm } from './components/Login'
 import UserList from './components/UserList'
-import { useActions } from './customHooks/useActions'
 import { useTypedSelector } from './customHooks/useTypedSelector'
 
 function App() {

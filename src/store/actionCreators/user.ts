@@ -1,10 +1,8 @@
 import { UserActions, UserActionTypes } from '../../common/types/user'
 import { AuthActions, AuthActionTypes } from '../../common/types/auth';
 import { Dispatch } from 'redux'
-import { AxiosError } from "axios";
-import moment, { Moment } from 'moment'
+import moment from 'moment'
 import UserService from '../../service/UserService'
-import { getDefaultHeaderToken } from '../../http'
 
 export const createUser = (name: string, date: string, email: string, phone: string, address: string) => {
     return async (dispatch: Dispatch<UserActions>) => {

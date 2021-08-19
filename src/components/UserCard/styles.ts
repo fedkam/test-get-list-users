@@ -48,19 +48,25 @@ export const Card = styled.div<{ isValid: boolean, isNew: boolean }>`
     border-radius: 16px;
     background-color: ${props => (props.theme as ThemeType).color.white};
     box-shadow:  ${props => (props.theme as ThemeType).shadow.small};
-    border: 1px solid ${props =>
-        props.isValid ?
-            (props.theme as ThemeType).color.gray10
-            :
-            (props.theme as ThemeType).color.red10
-    };
+    
+    ${props => props.isValid && !props.isNew && `border: 1px solid ${(props.theme as ThemeType).color.gray10}`}
+    
     ${props => !props.isValid && `
+        border: 1px solid ${(props.theme as ThemeType).color.red10};
         ${ItemsValidityField}{
             font-weight: 600;
             color: ${(props.theme as ThemeType).color.red10};
-        }`
+        }
+    `
     }
-    
+
+    ${props => props.isNew && `
+        border: 1px solid ${(props.theme as ThemeType).color.green10};
+        ${ItemsValidityField}{
+            font-weight: 600;
+            color: ${(props.theme as ThemeType).color.green10};
+        };
+    `}    
 `
 export const HeaderUserCard = styled.div`
     display: flex;

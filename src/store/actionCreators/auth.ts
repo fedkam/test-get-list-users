@@ -1,8 +1,7 @@
 import { AuthActions, AuthActionTypes } from '../../common/types/auth'
 import { Dispatch } from 'redux'
-import axios from 'axios'
 import AuthService from '../../service/AuthService'
-import { setDefaultHeaderToken, getDefaultHeaderToken } from '../../http'
+import { setDefaultHeaderToken } from '../../http'
 
 export const login = (email: string, password: string) => {
     return async (dispatch: Dispatch<AuthActions>) => {

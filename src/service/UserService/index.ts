@@ -1,5 +1,4 @@
 import { AxiosResponse } from 'axios';
-import { Moment } from 'moment';
 import { $axios, getDefaultHeaderToken } from '../../http';
 
 export default class UserService {

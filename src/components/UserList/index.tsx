@@ -19,7 +19,7 @@ const UserList: FC = () => {
     }, [page])
 
     if (loading) {
-        return <h1>Идет загрузка...</h1>
+        return <Style.Preloader>Идет загрузка...</Style.Preloader>
     }
 
     if (error) {
@@ -46,12 +46,14 @@ const UserList: FC = () => {
                 ))}
             </Style.UserCardsWrapper>
             <Style.PaginationWrapper >
-                <ControllButton onClick={() => setIsOpenCreateUserForm(true)}>Создать пользователя</ControllButton>
-                <Pagination
-                    page={page}
-                    nextPage={nextUserPage}
-                    prevPage={previosUserPage}
-                />
+                <Style.PaginationContainer>
+                    <ControllButton onClick={() => setIsOpenCreateUserForm(true)}>Создать пользователя</ControllButton>
+                    <Pagination
+                        page={page}
+                        nextPage={nextUserPage}
+                        prevPage={previosUserPage}
+                    />
+                </Style.PaginationContainer>
             </Style.PaginationWrapper>
         </Style.UserListWrapper>
     )
