@@ -9,6 +9,7 @@ export enum UserActionTypes {
 }
 
 export interface User {
+    id: number;
     name: string;
     dob: Moment;
     balance: string;

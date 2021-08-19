@@ -21,8 +21,11 @@ const UserList: FC = () => {
 
     return (
         <UserListWrapper>
-            {users.map((user) => (
-                <UserCard userData={user} />
+            {users.map((user, indx) => (
+                <UserCard
+                    key={user?.id ?? indx}
+                    userData={user}
+                />
             ))}
         </UserListWrapper>
     )

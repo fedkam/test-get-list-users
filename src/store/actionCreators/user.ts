@@ -6,13 +6,22 @@ import moment from 'moment'
 export const fetchUsers = (page = 1) => {
     return async (dispatch: Dispatch<UserActions>) => {
         try {
-            dispatch({ type: UserActionTypes.FETCH_USERS });
-            // const response = await axios.get('https://', {
-            //     headers: { 'X-ALFACRM-TOKEN': '' },
+            dispatch({ type: UserActionTypes.FETCH_USERS })
+            // const response = await axios.post('/v2api/auth/login', {
+            //     'email': 'test-task@alfacrm.pro',
+            //     'api_key': '9616c537-f7c9-11ea-a4f7-0cc47ae3c526'
+            // })
+            // console.log(response)
+
+            // const response = await axios.get('https://test.s20.online/v2api/customer/index', {
+            //     headers: { 'X-ALFACRM-TOKEN': '14844034334f71dddad09194ae813982' },
             //     params: { page: page }
             // });
+
+            document.cookie = 'X-ALFACRM-TOKEN=123; path=/; secure = true; SameSite = strict' // fix httpOnly; 
             let items = testLocalData.items.map((user) => (
                 {
+                    id: user.id,
                     name: user.name,
                     dob: moment(user.dob, 'DD-MM-YYYY'),
                     balance: user.balance,
@@ -35,8 +44,8 @@ export const fetchUsers = (page = 1) => {
                     }
                 )
             }, 500)
-        } catch (e) {
-            console.log(e)
+        } catch (err) {
+            console.log(err)
             dispatch({
                 type: UserActionTypes.FETCH_USERS_ERROR,
                 payload: 'Произошла ошибка при загрузке пользователей'

@@ -1,7 +1,5 @@
 import React, { FC } from 'react'
-import moment, { Moment } from 'moment'
-import styled from 'styled-components'
-import { ThemeType } from '../../common/types/theme'
+import moment from 'moment'
 import { User } from '../../common/types/user'
 import {
     FieldPropsType,
@@ -77,7 +75,6 @@ const UserCard: FC<{ userData: User }> = ({ userData }) => {
         return (Array.isArray(item) ? item : [item])
     };
     const contacts = arrayWrapper(phone).concat(arrayWrapper(email));
-    console.log(userData)
     return (
         <Style.Card>
             <Style.HeaderUserCard>
