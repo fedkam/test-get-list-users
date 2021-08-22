@@ -1,0 +1,7 @@
+**/node_modules
+**/package.json
+**/package-lock.json
+**/react-app-env.d.ts
+**/reportWebVitals.ts
+**/setupTests.ts
+**/.git

@@ -1,5 +1,5 @@
 import { UserActions, UserActionTypes } from '../../common/types/user'
-import { AuthActions, AuthActionTypes } from '../../common/types/auth';
+import { AuthActions, AuthActionTypes } from '../../common/types/auth'
 import { Dispatch } from 'redux'
 import moment from 'moment'
 import UserService from '../../service/UserService'
@@ -33,7 +33,7 @@ export const fetchUsers = (page = 0) => {
         try {
             dispatch({ type: UserActionTypes.FETCH_USERS })
             const response = await UserService.fetchUsers(page)
-            let items = response.data.items.map((user: any) => (
+            const items = response.data.items.map((user: any) => (
                 {
                     id: user.id,
                     name: user.name,
@@ -75,6 +75,7 @@ export const fetchUsers = (page = 0) => {
     }
 }
 
+/*
 const testLocalData = {
     "total": 887,
     "count": 20,
@@ -928,3 +929,4 @@ const testLocalData = {
         }
     ]
 }
+*/

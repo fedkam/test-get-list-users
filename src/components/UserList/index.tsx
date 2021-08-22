@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { useActions } from '../../customHooks/useActions'
 import { useTypedSelector } from '../../customHooks/useTypedSelector'
 import UserCard from '../UserCard'
@@ -6,8 +6,6 @@ import * as Style from './styles'
 import { Pagination } from '../Pagination'
 import { ControllButton } from '../Pagination/styles'
 import { CreateUser } from '../CreateUser'
-
-
 
 const UserList: FC = () => {
     const { page, error, loading, users } = useTypedSelector(state => state.user)
@@ -59,4 +57,4 @@ const UserList: FC = () => {
     )
 }
 
-export default UserList;
+export default UserList
