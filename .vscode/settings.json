@@ -1,5 +1,8 @@
 {
-  "editor.formatOnSave": true, // auto format the file on each save
+  "editor.formatOnSave": false, //off editor format
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true //on eslint format
+  },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -10,7 +13,4 @@
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
   "eslint.packageManager": "npm", // change to npm if you use npm
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
 }

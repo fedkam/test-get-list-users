@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import { SyntheticEvent, FC, useState } from 'react'
 
 import { ControllButton } from '../Pagination/styles'
 import * as Style from './styles'
@@ -16,10 +16,10 @@ export const CreateUser: FC<CreateUserProps> = ({ createUser, close }) => {
     const [address, setAddress] = useState('')
     const [error, setError] = useState('')
 
-    const onSubmit = async (e: React.SyntheticEvent) => {
-        e.preventDefault();
+    const onSubmit = async (e: SyntheticEvent) => {
+        e.preventDefault()
         if (name && date && email && phone && address) {
-            const result = await createUser(name, date, email, phone, address);
+            const result = await createUser(name, date, email, phone, address)
             result?.success && alert('Пользователь успешно создан')
             close()
         } else {

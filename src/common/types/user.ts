@@ -1,4 +1,6 @@
-import { Moment } from "moment";
+/* eslint-disable no-unused-vars */
+
+import { Moment } from 'moment'
 
 export enum UserActionTypes {
     FETCH_USERS = 'FETCH_USERS',
@@ -57,4 +59,3 @@ interface CreateUserSuccessAction {
 }
 
 export type UserActions = FetchUserAction | FetchUserSuccessAction | FetchUserErrorAction | PreviousUserPage | NextUserPage | CreateUserAction | CreateUserSuccessAction;
-

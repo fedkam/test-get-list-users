@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import { ThemeType } from '../../common/types/theme';
+import { createGlobalStyle } from 'styled-components'
+import { ThemeType } from '../../common/types/theme'
 
 const ResetCss = createGlobalStyle`
     /* Box sizing rules */
@@ -95,6 +95,6 @@ const ResetCss = createGlobalStyle`
         scroll-behavior: auto !important;
       }
     }
-`;
+`
 
-export default ResetCss;
+export default ResetCss

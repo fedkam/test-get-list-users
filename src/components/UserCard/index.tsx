@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import moment from 'moment'
 import { User } from '../../common/types/user'
 import {
@@ -8,30 +8,25 @@ import {
 } from './types'
 import * as Style from './styles'
 
-
-
 const Field: FC<FieldPropsType> = ({ children, items }) => {
-    const validItems = validationFieldUserCard(items);
+    const validItems = validationFieldUserCard(items)
     return (
         <Style.FieldWrapper>
             <Style.LabelField>{children}</Style.LabelField>
             <Style.ItemsField>
                 {
-                    Array.isArray(validItems) ?
-                        validItems.map((item, key) => (
+                    Array.isArray(validItems)
+                        ? validItems.map((item, key) => (
                             <div key={`${item}${key}`}>
                                 {item}
                             </div>
                         ))
-                        :
-                        <div>{validItems}</div>
+                        : <div>{validItems}</div>
                 }
             </Style.ItemsField>
         </Style.FieldWrapper>
     )
 }
-
-
 
 const ValidityField: FC<ValidityFieldPropsType> = ({ children, item }) => (
     <>
@@ -40,9 +35,7 @@ const ValidityField: FC<ValidityFieldPropsType> = ({ children, item }) => (
     </>
 )
 
-
-
-function validationFieldUserCard(item: ValidationFieldUserCardArg): string | string[] {
+function validationFieldUserCard (item: ValidationFieldUserCardArg): string | string[] {
     const errMessage = 'Данные отсутствуют'
     switch (typeof item) {
         case 'string':
@@ -58,8 +51,6 @@ function validationFieldUserCard(item: ValidationFieldUserCardArg): string | str
     }
 }
 
-
-
 const UserCard: FC<{ userData: User }> = ({ userData }) => {
     const {
         name,
@@ -71,10 +62,10 @@ const UserCard: FC<{ userData: User }> = ({ userData }) => {
         addr,
         custom_photo
     } = userData
-    function arrayWrapper(item: string | string[]): string[] {
+    function arrayWrapper (item: string | string[]): string[] {
         return (Array.isArray(item) ? item : [item])
     };
-    const contacts = arrayWrapper(phone).concat(arrayWrapper(email));
+    const contacts = arrayWrapper(phone).concat(arrayWrapper(email))
 
     const isValid = !moment(moment().format()).isAfter(e_date.format())
     const isNew = moment(moment().format()).isSame(e_date.format())
@@ -101,4 +92,4 @@ const UserCard: FC<{ userData: User }> = ({ userData }) => {
     )
 }
 
-export default UserCard;
+export default UserCard

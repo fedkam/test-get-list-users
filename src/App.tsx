@@ -1,9 +1,8 @@
-import React from 'react'
 import { LoginForm } from './components/Login'
 import UserList from './components/UserList'
 import { useTypedSelector } from './customHooks/useTypedSelector'
 
-function App() {
+function App () {
   const { isAuth } = useTypedSelector(state => state.auth)
 
   return (

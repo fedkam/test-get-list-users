@@ -1,7 +1,6 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import * as Style from './styles'
 import { PaginationProps } from './types'
-
 
 export const Pagination: FC<PaginationProps> = ({ page = 0, nextPage, prevPage }) => {
     return (
@@ -16,4 +15,3 @@ export const Pagination: FC<PaginationProps> = ({ page = 0, nextPage, prevPage }
         </Style.Wrapper>
     )
 }
-

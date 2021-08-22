@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 export enum AuthActionTypes {
     FETCH_TOKEN = 'FETCH_TOKEN',
     FETCH_TOKEN_SUCCESS = 'FETCH_TOKEN_SUCCESS',

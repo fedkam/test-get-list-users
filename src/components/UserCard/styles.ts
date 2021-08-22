@@ -2,8 +2,6 @@
 import styled from 'styled-components'
 import { ThemeType } from '../../common/types/theme'
 
-
-
 export const FieldWrapper = styled.div`
     :nth-child(n){ margin-bottom: 24px; }
     :last-child{ margin-bottom: 32px; }
@@ -20,8 +18,6 @@ export const ItemsField = styled.div`
     margin-left: 16px;
 `
 
-
-
 export const LabelValidityField = styled.span`
     font-size: 12px;
     color: ${(props) => (props.theme as ThemeType).color.gray10};
@@ -33,14 +29,11 @@ export const ItemsValidityField = styled.span`
     margin-left: 4px;
 `
 
-
-
 export const NameField = styled.div`
     font-size: ${(props) => (props.theme as ThemeType).fonts.size._24};
     font-weight: 700;
     margin-bottom: 24px;
 `
-
 
 export const Card = styled.div<{ isValid: boolean, isNew: boolean }>`
     max-width: 400px;

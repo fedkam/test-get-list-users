@@ -16,28 +16,28 @@ const fonts = {
     size: {
         _14: '14px',
         _18: '18px',
-        _24: '24px',
-    },
+        _24: '24px'
+    }
 } as const
 
 const radius = {
     small: '4px',
     medium: '10px',
-    large: '24px',
+    large: '24px'
 } as const
 
 const shadow = {
     extraSmall: '',
     small: '0px 2px 6px rgb(0, 0, 0, 0.1)',
     medium: '0px 0px 5px rgb(0, 0 ,0 , 0.1)',
-    large: '',
+    large: ''
 } as const
 
 const theme = {
     color,
     fonts,
     radius,
-    shadow,
+    shadow
 }
 
 export default theme

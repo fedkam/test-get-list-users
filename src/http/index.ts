@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from 'axios'
 
 const TOKEN_NAME = 'X-ALFACRM-TOKEN' as const
 
@@ -13,7 +13,3 @@ export const setDefaultHeaderToken = (token: string): void => {
 export const getDefaultHeaderToken = (): object => {
     return { [TOKEN_NAME]: $axios.defaults.headers.common[TOKEN_NAME] }
 }
-
-
-
-

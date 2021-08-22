@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import { FC, useState } from 'react'
 import { useActions } from '../../customHooks/useActions'
 import { useTypedSelector } from '../../customHooks/useTypedSelector'
 import { Preloader } from '../UserList/styles'

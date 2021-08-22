@@ -1,6 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 import { ThemeType } from '../../common/types/theme'
-
 
 export const Wrapper = styled.div`
     width: 100vw;

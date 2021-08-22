@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import { ThemeType } from '../../common/types/theme'
 
-
-
 export const Wrapper = styled.div`
     display: flex;
 `

@@ -21,8 +21,11 @@
     ],
     "rules": {
         "indent": "off",
-        // "react/jsx-uses-react": "off",
-        // "react/react-in-jsx-scope": "off",
-        "no-case-declarations": "off"
+        "react/jsx-uses-react": "off",
+        "react/react-in-jsx-scope": "off", // игнор объявление ImportReactFromReact, только для (react > v.17)
+        "no-case-declarations": "off",
+        "react/prop-types": "off",
+        "eqeqeq":"warn",
+        "camelcase":"warn"
     }
 }
