@@ -5,7 +5,8 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "standard"
+        "standard",
+        "plugin:prettier/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -17,7 +18,8 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "prettier"
     ],
     "rules": {
         "indent": "off",
@@ -25,7 +27,7 @@
         "react/react-in-jsx-scope": "off", // игнор объявление ImportReactFromReact, только для (react > v.17)
         "no-case-declarations": "off",
         "react/prop-types": "off",
-        "eqeqeq":"warn",
-        "camelcase":"warn"
+        "eqeqeq": "warn",
+        "camelcase": "warn"
     }
 }
